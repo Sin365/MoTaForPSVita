@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,7 +72,7 @@ public class DevilController : ExplosionproofController
         // 音频播放
         GameManager.Instance.SoundManager.PlaySound(ESoundType.Music, "GameOver");
         // 勇士
-        GameManager.Instance.UIManager.ShowDialog("MrSunyner", new List<string> { "恭喜你顺利通关，此游戏为本人的第一个完整的游戏作品，制作比较简陋请谅解，感谢你的游玩，再见。" }, () =>
+        GameManager.Instance.UIManager.ShowDialog("MrSunyner", new List<string> { "恭喜你顺利通关，此游戏为本人的第一个完整的游戏作品，制作比较简陋请谅解，感谢你的游玩，再见。（PS：以上是保留前人留下的原话）" }, () =>
         {
             // 回到主菜单
             GameManager.Instance.BackHomeEvent();

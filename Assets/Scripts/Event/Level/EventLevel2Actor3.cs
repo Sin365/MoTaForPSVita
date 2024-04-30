@@ -7,18 +7,18 @@ public class EventLevel2Actor3 : ActorController
 {
     public override bool Interaction()
     {
-        // ÀÏÍ·Ëµ»°
-        GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "¸ĞĞ»Äã¾ÈÁËÎÒ£¬Õâ 1000 ½ğ±ÒÎñ±ØÊÕÏÂ¡£" }, () =>
+        // è€å¤´è¯´è¯
+        GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "æ„Ÿè°¢ä½ æ•‘äº†æˆ‘ï¼Œè¿™ 1000 é‡‘å¸åŠ¡å¿…æ”¶ä¸‹ã€‚" }, () =>
         {
-            // »ñµÃ½ğ±Ò
+            // è·å¾—é‡‘å¸
             GameManager.Instance.PlayerManager.PlayerInfo.Gold += 1000;
-            // ÌáÊ¾ĞÅÏ¢
-            GameManager.Instance.UIManager.ShowInfo("»ñµÃ 1000 ½ğ±Ò¡£");
-            // ÒôÆµ²¥·Å
+            // æç¤ºä¿¡æ¯
+            GameManager.Instance.UIManager.ShowInfo("è·å¾— 1000 é‡‘å¸ã€‚");
+            // éŸ³é¢‘æ’­æ”¾
             GameManager.Instance.SoundManager.PlaySound(ESoundType.Music, "1-9");
-            // ´ò¿ªÈËÎï¿ØÖÆÆ÷
+            // æ‰“å¼€äººç‰©æ§åˆ¶å™¨
             GameManager.Instance.PlayerManager.Enable = true;
-            // NPC »ØÊÕ
+            // NPC å›æ”¶
             GameManager.Instance.PoolManager.RecycleResource(gameObject);
         });
         return false;

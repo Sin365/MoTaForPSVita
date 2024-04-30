@@ -9,9 +9,9 @@ public class HideWallController : EnvironmentController
     {
         if (_opening) return false;
         Open(() =>
-        {// ´ò¿ªºó´´½¨Ç½±Ú
+        {// æ‰“å¼€ååˆ›å»ºå¢™å£
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Environment, 6).transform.position = transform.position;
-            // ¸Ä±ä¾çÇé
+            // æ”¹å˜å‰§æƒ…
             if (GameManager.Instance.LevelManager.Level == 23) GameManager.Instance.PlotManager.PlotDictionary[7] += 1;
         });
         _opening = true;

@@ -25,12 +25,12 @@ public class MagicDoorVampireController : MonoBehaviour
 
     public void RecycleSelf()
     {
-        // 回收资源
+        // 鍥炴敹璧勬簮
         GameManager.Instance.PoolManager.RecycleResource(gameObject);
     }
 
     /// <summary>
-    /// 获取守卫事件
+    /// 鑾峰彇瀹堝崼浜嬩欢
     /// </summary>
     private void GetGuardEvent()
     {
@@ -40,7 +40,7 @@ public class MagicDoorVampireController : MonoBehaviour
     IEnumerator GetGuard()
     {
         _vampire = null;
-        // 从已使用物体列表中按位置获取物体
+        // 浠庡凡浣跨敤鐗╀綋鍒楄〃涓寜浣嶇疆鑾峰彇鐗╀綋
         while(null == _vampire)
         {
             GameManager.Instance.PoolManager.UseList.ForEach(obj =>

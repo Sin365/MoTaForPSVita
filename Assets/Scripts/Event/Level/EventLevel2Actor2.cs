@@ -7,18 +7,18 @@ public class EventLevel2Actor2 : ActorController
 {
     public override bool Interaction()
     {
-        // Ğ¡ÍµËµ»°
-        GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "¹ş¹ş£¬ÎÒÃÇÕæÊÇÓĞÔµ¡£", "Ğ»Ğ»Äã¾ÈÁËÎÒ¡£", "ÎÒ»áÔÚÄ§ÁúÅÔ±ß¿ªÒ»Ìõ°µµÀ£¬È¥ 35 ²ãÕÒÎÒ°É¡£" }, () =>
+        // å°å·è¯´è¯
+        GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "å“ˆå“ˆï¼Œæˆ‘ä»¬çœŸæ˜¯æœ‰ç¼˜ã€‚", "è°¢è°¢ä½ æ•‘äº†æˆ‘ã€‚", "æˆ‘ä¼šåœ¨é­”é¾™æ—è¾¹å¼€ä¸€æ¡æš—é“ï¼Œå» 35 å±‚æ‰¾æˆ‘å§ã€‚" }, () =>
         {
-            // Éú³É 35 Â¥Ğ¡Íµ
+            // ç”Ÿæˆ 35 æ¥¼å°å·
             GameManager.Instance.ResourceManager.MakeResourceForLevel(35, EResourceType.Actor, 31, new Vector2(-1, -4));
-            // ¸Ä±ä¾çÇé
+            // æ”¹å˜å‰§æƒ…
             GameManager.Instance.PlotManager.PlotDictionary[9] = 3;
-            // ÒôÆµ²¥·Å
+            // éŸ³é¢‘æ’­æ”¾
             GameManager.Instance.SoundManager.PlaySound(ESoundType.Music, "1-9");
-            // ´ò¿ªÈËÎï¿ØÖÆÆ÷
+            // æ‰“å¼€äººç‰©æ§åˆ¶å™¨
             GameManager.Instance.PlayerManager.Enable = true;
-            // NPC »ØÊÕ
+            // NPC å›æ”¶
             GameManager.Instance.PoolManager.RecycleResource(gameObject);
         });
         return false;

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8EE647E1-270F-5333-B5EE-D18DC95480BD}</ProjectGuid>
+    <ProjectGuid>{548D52EE-098C-F54C-50DB-964C33A21BBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -205,79 +205,19 @@
      <Compile Include="Assets\Scripts\UI\Silder\GameSlider.cs" />
      <Compile Include="Assets\Scripts\UI\Text\GameText.cs" />
      <Compile Include="Assets\Scripts\UI\Toggle\GameToggle.cs" />
-     <None Include="Assets\PostProcessing\Shaders\API\Switch.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ExposureHistogram.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\API\Vulkan.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MultiScaleVODownsample2.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\LightMeter.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasingBridge.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\API\PSSL.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Histogram.compute" />
-     <None Include="Assets\PostProcessing\Shaders\StdLib.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Sampling.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\CopyStdFromTexArray.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Dithering.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ScalableAO.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\GrainBaker.shader" />
      <None Include="Assets\Resources\cfg\mapinfo.txt" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MultiScaleVOUpsample.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Bloom.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\DepthOfField.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\API\D3D9.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Waveform.compute" />
-     <None Include="Assets\PostProcessing\Shaders\API\D3D11.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\FastApproximateAntialiasing.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Overlays.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Texture2DLerp.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\DiskKernels.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Copy.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Waveform.shader" />
-     <None Include="Assets\PostProcessing\Shaders\API\D3D12.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\API\PSP2.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Vectorscope.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ScalableAO.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Vectorscope.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Lut2DBaker.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\DepthOfField.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\DiscardAlpha.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Texture3DLerp.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Colors.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MultiScaleVORender.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\CopyStd.shader" />
-     <None Include="Assets\PostProcessing\Shaders\API\Metal.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MultiScaleVODownsample1.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ExposureHistogram.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\TemporalAntialiasing.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\AutoExposure.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Distortion.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Debug\Histogram.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MotionBlur.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Fog.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\xRLib.hlsl" />
      <None Include="Assets\Resources\cfg\attinfo.txt" />
-     <None Include="Assets\PostProcessing\Shaders\ACES.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\CopyStdFromDoubleWide.shader" />
-     <None Include="Assets\PostProcessing\Shaders\API\OpenGL.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\ScreenSpaceReflections.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\GaussianDownsample.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\DeferredFog.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\Lut3DBaker.compute" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\SubpixelMorphologicalAntialiasing.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\API\XboxOne.hlsl" />
-     <None Include="Assets\PostProcessing\Shaders\Builtins\MultiScaleVO.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>F:/Program Files/Unity/2018.2.19f1/Editor/Data/PlaybackEngines/PSP2Player/Tools/UnityEngine.AIModule.dll</HintPath>
@@ -831,12 +771,6 @@
  <Reference Include="Boo.Lang">
  <HintPath>F:/Program Files/Unity/2018.2.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{C837BEE5-260D-AFBE-961C-68BAFFBE231D}</Project>      <Name>Unity.Postprocessing.Runtime</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{5B5234D1-9B7E-7C68-DECA-E1011F95544D}</Project>      <Name>Unity.Postprocessing.Editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

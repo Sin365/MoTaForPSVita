@@ -32,12 +32,12 @@ public class SpecialWallController2 : MonoBehaviour
 
     public void RecycleSelf()
     {
-        // »ØÊÕ×ÊÔ´
+        // å›æ”¶èµ„æº
         GameManager.Instance.PoolManager.RecycleResource(gameObject);
     }
 
     /// <summary>
-    /// »ñÈ¡ÊØÎÀÊÂ¼ş
+    /// è·å–å®ˆå«äº‹ä»¶
     /// </summary>
     private void GetGuardEvent()
     {
@@ -49,7 +49,7 @@ public class SpecialWallController2 : MonoBehaviour
         _guard6 = null;
         _guard7 = null;
         _guard8 = null;
-        // ´ÓÒÑÊ¹ÓÃÎïÌåÁĞ±íÖĞ°´Î»ÖÃ»ñÈ¡ÎïÌå
+        // ä»å·²ä½¿ç”¨ç‰©ä½“åˆ—è¡¨ä¸­æŒ‰ä½ç½®è·å–ç‰©ä½“
         Vector2[] points = new Vector2[] {
         new Vector2(-1, 2),
         new Vector2(1,2),
@@ -130,21 +130,21 @@ public class SpecialWallController2 : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼ì²âÃÅÊÇ·ñÄÜ´ò¿ª
+    /// æ£€æµ‹é—¨æ˜¯å¦èƒ½æ‰“å¼€
     /// </summary>
     private void DetectionOpen()
     {
         if (_guard1 == null && _guard2 == null && _guard3 == null && _guard4 == null && _guard5 == null && _guard6 == null && _guard7 == null && _guard8 == null)
         {
             _animator.SetTrigger("open");
-            // Éú³É»ÆÔ¿³×
+            // ç”Ÿæˆé»„é’¥åŒ™
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = (Vector2)transform.position + Vector2.up + Vector2.left;
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = (Vector2)transform.position + Vector2.up + Vector2.right;
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = (Vector2)transform.position + Vector2.down + Vector2.left;
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = (Vector2)transform.position + Vector2.down + Vector2.right;
-            // Éú³ÉºìÔ¿³×
+            // ç”Ÿæˆçº¢é’¥åŒ™
             GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 3).transform.position = transform.position;
-            // »ØÊÕÎïÌå
+            // å›æ”¶ç‰©ä½“
             GameManager.Instance.PoolManager.RecycleResource(gameObject);
         }
     }

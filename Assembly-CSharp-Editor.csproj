@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{102FD55A-6E68-F793-72B7-E6B2C971287E}</ProjectGuid>
+    <ProjectGuid>{A2E6D919-69EE-A27F-D198-CD90CC5C4067}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -55,20 +55,17 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\ProcessUnityVersion.cs" />
      <Compile Include="Assets\Scripts\Editor\UnityTools.cs" />
-     <None Include="Assets\PostProcessing\Shaders\Editor\Trackball.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Editor\ConvertToLog.shader" />
-     <None Include="Assets\PostProcessing\Shaders\Editor\CurveGrid.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>H:/UnityProject/2018test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>H:/UnityProject/MoTaForPSVita/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>F:/Program Files/Unity/2018.2.19f1/Editor/Data/PlaybackEngines/PSP2Player/Tools/UnityEngine.AIModule.dll</HintPath>
@@ -682,11 +679,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{8EE647E1-270F-5333-B5EE-D18DC95480BD}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{C837BEE5-260D-AFBE-961C-68BAFFBE231D}</Project>      <Name>Unity.Postprocessing.Runtime</Name>    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{5B5234D1-9B7E-7C68-DECA-E1011F95544D}</Project>      <Name>Unity.Postprocessing.Editor</Name>    </ProjectReference>
+      <Project>{548D52EE-098C-F54C-50DB-964C33A21BBD}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

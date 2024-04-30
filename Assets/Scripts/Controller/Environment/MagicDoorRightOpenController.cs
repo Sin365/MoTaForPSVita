@@ -26,18 +26,18 @@ public class MagicDoorRightOpenController : MonoBehaviour
 
     public void RecycleSelf()
     {
-        // 回收资源
+        // 鍥炴敹璧勬簮
         GameManager.Instance.PoolManager.RecycleResource(gameObject);
     }
 
     /// <summary>
-    /// 获取守卫事件
+    /// 鑾峰彇瀹堝崼浜嬩欢
     /// </summary>
     private void GetGuardEvent()
     {
         _guard1 = null;
         _guard2 = null;
-        // 从已使用物体列表中按位置获取物体
+        // 浠庡凡浣跨敤鐗╀綋鍒楄〃涓寜浣嶇疆鑾峰彇鐗╀綋
         GameManager.Instance.PoolManager.UseList.ForEach(obj =>
         {
             if ((Vector2)obj.transform.position == new Vector2(transform.position.x + 1, transform.position.y + 1))
@@ -60,7 +60,7 @@ public class MagicDoorRightOpenController : MonoBehaviour
     }
 
     /// <summary>
-    /// 检测门是否能打开
+    /// 妫�娴嬮棬鏄惁鑳芥墦寮�
     /// </summary>
     private void DetectionOpen()
     {

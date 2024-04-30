@@ -9,61 +9,61 @@ public class BoneCaptainController : EnemyController, IInteraction, IExplosionpr
     {
         OnDeath += () =>
         {
-            // ¹Ø±ÕÈËÎï¿ØÖÆÆ÷
+            // å…³é—­äººç‰©æ§åˆ¶å™¨
             GameManager.Instance.PlayerManager.Enable = false;
-            // Ëø¶¨ÈËÎïÒÆ¶¯
+            // é”å®šäººç‰©ç§»åŠ¨
             GameManager.Instance.PlayerManager.LockEnable = true;
-            // Ëµ»°
-            GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "²»£¬²»¿ÉÄÜ£¡£¡£¡", "ÎÒÔõÃ´»áÊä£¿", "Äã±ğµÃÒâ£¬ºóÃæ»¹ÓĞĞí¶àÇ¿´óµÄ¶ÔÊÖ£¬Äã±ØËÀÎŞÒÉ£¡" }, () =>
+            // è¯´è¯
+            GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "ä¸ï¼Œä¸å¯èƒ½ï¼ï¼ï¼", "æˆ‘æ€ä¹ˆä¼šè¾“ï¼Ÿ", "ä½ åˆ«å¾—æ„ï¼Œåé¢è¿˜æœ‰è®¸å¤šå¼ºå¤§çš„å¯¹æ‰‹ï¼Œä½ å¿…æ­»æ— ç–‘ï¼" }, () =>
             {
-                // ¿ªÃÅ
+                // å¼€é—¨
                 EnvironmentController ec = null;
                 GameManager.Instance.PoolManager.UseList.ForEach(obj =>
                 {
                     if (obj.GetComponent<MagicDoorController>() != null && (Vector2)obj.transform.position == new Vector2(0, -1)) ec = obj.GetComponent<EnvironmentController>();
                 });
                 ec.Open(null);
-                // ËÀÍöÊ±´´½¨ÎïÆ·
+                // æ­»äº¡æ—¶åˆ›å»ºç‰©å“
                 Vector2 point = new Vector2();
-                // Éú³É´óÑªÆ¿
+                // ç”Ÿæˆå¤§è¡€ç“¶
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(-5 + i, 2);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 6).transform.position = point;
                 }
-                // Éú³Éºì±¦Ê¯
+                // ç”Ÿæˆçº¢å®çŸ³
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(-5 + i, 3);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 7).transform.position = point;
                 }
-                // Éú³ÉÀ¶±¦Ê¯
+                // ç”Ÿæˆè“å®çŸ³
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(3 + i, 3);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 8).transform.position = point;
                 }
-                // Éú³É»ÆÔ¿³×
+                // ç”Ÿæˆé»„é’¥åŒ™
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(3 + i, 2);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = point;
                 }
-                // Éú³ÉÂ¥Ìİ
+                // ç”Ÿæˆæ¥¼æ¢¯
                 point.Set(0, -5);
                 GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Environment, 7).transform.position = point;
-                // Éú³É¾çÇéµØ°å
+                // ç”Ÿæˆå‰§æƒ…åœ°æ¿
                 point.Set(0, -3);
                 GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Environment, 14).transform.position = point;
-                // ½âËøÈËÎïÒÆ¶¯
+                // è§£é”äººç‰©ç§»åŠ¨
                 GameManager.Instance.PlayerManager.LockEnable = false;
-                // ´ò¿ªÈËÎï¿ØÖÆÆ÷
+                // æ‰“å¼€äººç‰©æ§åˆ¶å™¨
                 GameManager.Instance.PlayerManager.Enable = true;
-                // ½âËøÒôÀÖ
+                // è§£é”éŸ³ä¹
                 GameManager.Instance.SoundManager.LockEnable = false;
-                // ÒôÆµ²¥·Å
+                // éŸ³é¢‘æ’­æ”¾
                 GameManager.Instance.SoundManager.PlaySound(ESoundType.Music, "LevelWin");
-                // ±ä¸ü¾çÇé×´Ì¬
+                // å˜æ›´å‰§æƒ…çŠ¶æ€
                 GameManager.Instance.PlotManager.PlotDictionary[4] = 5;
             });
         };
@@ -73,14 +73,14 @@ public class BoneCaptainController : EnemyController, IInteraction, IExplosionpr
     {
         switch (GameManager.Instance.PlotManager.PlotDictionary[4])
         {
-            // ×´Ì¬ 1 ¶Ô»°
+            // çŠ¶æ€ 1 å¯¹è¯
             case 3:
-                // ÉÌÈËËµ»°
-                GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "¾¹È»ÄÜÌÓ³öÎÒÉèµÄÏİÚå£¿", "ÎÒÊÇ²»»áÈÃÄã¹ıÈ¥µÄ£¬À´¾öÒ»ËÀÕ½°É£¡" }, () =>
+                // å•†äººè¯´è¯
+                GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "ç«Ÿç„¶èƒ½é€ƒå‡ºæˆ‘è®¾çš„é™·é˜±ï¼Ÿ", "æˆ‘æ˜¯ä¸ä¼šè®©ä½ è¿‡å»çš„ï¼Œæ¥å†³ä¸€æ­»æˆ˜å§ï¼" }, () =>
                 {
-                    // ´ò¿ªÈËÎï¿ØÖÆÆ÷
+                    // æ‰“å¼€äººç‰©æ§åˆ¶å™¨
                     GameManager.Instance.PlayerManager.Enable = true;
-                    // ±ä¸ü¾çÇé×´Ì¬
+                    // å˜æ›´å‰§æƒ…çŠ¶æ€
                     GameManager.Instance.PlotManager.PlotDictionary[4] = 4;
                 });
                 break;

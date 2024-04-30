@@ -1,4 +1,4 @@
-﻿//Made by Olsc
+//Made by Olsc
 
 using UnityEngine.UI;
 

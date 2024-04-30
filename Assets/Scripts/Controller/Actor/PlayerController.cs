@@ -15,9 +15,9 @@ public class PlayerController : ActorController
     {
         base.Awake();
 
-        // °ó¶¨Íæ¼Ò¿ØÖÆÆ÷
+        // ç»‘å®šç©å®¶æ§åˆ¶å™¨
         GameManager.Instance.PlayerManager.BindPlayer(this);
-        // °ó¶¨ÊäÈëÊÂ¼ş
+        // ç»‘å®šè¾“å…¥äº‹ä»¶
         GameManager.Instance.EventManager.OnMoveInput = OnMoveInputEvent;
 
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -35,38 +35,38 @@ public class PlayerController : ActorController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // ¼ñ¶«Î÷
+        // æ¡ä¸œè¥¿
         if (collision.CompareTag("Item"))
         {
-            // ±¦Ê¯×Ô¶¯Ê¹ÓÃ
+            // å®çŸ³è‡ªåŠ¨ä½¿ç”¨
             if (collision.GetComponent<ItemController>().ID == 7)
             {
                 GameManager.Instance.PlayerManager.PlayerInfo.Attack += 3;
-                GameManager.Instance.UIManager.ShowInfo($"»ñµÃ {GameManager.Instance.ResourceManager.GetResourceInfo(EResourceType.Item, 7).Name} 1 ¸ö£¬Ôö¼Ó 3 µã¹¥»÷Á¦¡£");
+                GameManager.Instance.UIManager.ShowInfo($"è·å¾— {GameManager.Instance.ResourceManager.GetResourceInfo(EResourceType.Item, 7).Name} 1 ä¸ªï¼Œå¢åŠ  3 ç‚¹æ”»å‡»åŠ›ã€‚");
                 GameManager.Instance.PoolManager.RecycleResource(collision.gameObject);
                 GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "PickUp");
             }
             else if (collision.GetComponent<ItemController>().ID == 8)
             {
                 GameManager.Instance.PlayerManager.PlayerInfo.Defence += 3;
-                GameManager.Instance.UIManager.ShowInfo($"»ñµÃ {GameManager.Instance.ResourceManager.GetResourceInfo(EResourceType.Item, 8).Name} 1 ¸ö£¬Ôö¼Ó 3 µã·ÀÓùÁ¦¡£");
+                GameManager.Instance.UIManager.ShowInfo($"è·å¾— {GameManager.Instance.ResourceManager.GetResourceInfo(EResourceType.Item, 8).Name} 1 ä¸ªï¼Œå¢åŠ  3 ç‚¹é˜²å¾¡åŠ›ã€‚");
                 GameManager.Instance.PoolManager.RecycleResource(collision.gameObject);
                 GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "PickUp");
             }
             else GameManager.Instance.BackpackManager.PickUp(collision.GetComponent<ItemController>());
         }
-        // ´ò¹Ö
+        // æ‰“æ€ª
         else if (collision.CompareTag("Enemy")) GameManager.Instance.CombatManager.StartFight(collision.GetComponent<EnemyController>());
     }
 
     private void OnDestroy()
     {
-        // ½â°óÊäÈëÊÂ¼ş
+        // è§£ç»‘è¾“å…¥äº‹ä»¶
         GameManager.Instance.PlayerManager.UnbindPlayer();
     }
 
     /// <summary>
-    /// ¼ì²â¶¯»­×´Ì¬»ú
+    /// æ£€æµ‹åŠ¨ç”»çŠ¶æ€æœº
     /// </summary>
     private void CheckAnimator()
     {
@@ -76,15 +76,15 @@ public class PlayerController : ActorController
     }
 
     /// <summary>
-    /// »ñÈ¡½ÇÉ«ÊäÈë
+    /// è·å–è§’è‰²è¾“å…¥
     /// </summary>
-    /// <param name="inputType">ÊäÈëÀàĞÍ</param>
+    /// <param name="inputType">è¾“å…¥ç±»å‹</param>
     private void OnMoveInputEvent(EDirectionType inputType)
     {
         if (walking || GameManager.Instance.CombatManager.Fighting) return;
-        // ×´Ì¬¸³Öµ
+        // çŠ¶æ€èµ‹å€¼
         direction = GameManager.Instance.CombatManager.Fighting ? direction : inputType;
-        // ³¢ÊÔ»ñÈ¡ÃæÇ°µÄÎïÌå
+        // å°è¯•è·å–é¢å‰çš„ç‰©ä½“
         Vector2 targetPoint = Vector2.zero;
         switch (direction)
         {
@@ -105,10 +105,10 @@ public class PlayerController : ActorController
         }
         targetPoint += (Vector2)transform.position;
         RaycastHit2D[] hits = Physics2D.RaycastAll(targetPoint, (targetPoint - (Vector2)transform.position), .1f);
-        // Èç¹ûÓĞ¿É½»»¥µÄÎïÌå
+        // å¦‚æœæœ‰å¯äº¤äº’çš„ç‰©ä½“
         if (hits.Length > 0)
         {
-            // É¸Ñ¡×îÉÏ²ã¿ÉÎïÌå
+            // ç­›é€‰æœ€ä¸Šå±‚å¯ç‰©ä½“
             int maxOrder = -100;
             GameObject obj = null;
             foreach (var hit in hits)
@@ -121,16 +121,16 @@ public class PlayerController : ActorController
             }
             if (null != obj.GetComponent<IInteraction>())
             {
-                // ½øĞĞ½»»¥ ÊÓÇé¿öÍ£Ö¹ÒÆ¶¯
+                // è¿›è¡Œäº¤äº’ è§†æƒ…å†µåœæ­¢ç§»åŠ¨
                 if (!obj.GetComponent<IInteraction>().Interaction()) return;
             }
         }
-        // ÔÈËÙÒÆ¶¯
+        // åŒ€é€Ÿç§»åŠ¨
         StartCoroutine(Moving(transform.position, targetPoint));
     }
 
     /// <summary>
-    /// ÒÆ¶¯
+    /// ç§»åŠ¨
     /// </summary>
     IEnumerator Moving(Vector2 oldPoint, Vector2 newPoint)
     {
@@ -146,7 +146,7 @@ public class PlayerController : ActorController
             yield return null;
         }
         walking = false;
-        // ÒÆ¶¯Íê³Éºó´¥·¢ÊÂ¼ş
+        // ç§»åŠ¨å®Œæˆåè§¦å‘äº‹ä»¶
         GameManager.Instance.EventManager.OnPlayerArrive?.Invoke(newPoint);
     }
 }

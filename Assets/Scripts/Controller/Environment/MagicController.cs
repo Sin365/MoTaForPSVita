@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +9,7 @@ public class MagicController : EnvironmentController
     {
         base.OnDisable();
         GameManager.Instance.PlayerManager.Enable = false;
-        // ÒôÆµ²¥·Å
+        // éŸ³é¢‘æ’­æ”¾
         GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "Magic");
     }
 

@@ -10,42 +10,42 @@ public class VampireController : EnemyController
         GameManager.Instance.EventManager.OnVampireShow?.Invoke();
            OnDeath += () =>
         {
-            // Ëµ»°
-            GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "àŞ£¬ÉÏµÛ£¡ÎÒ×öÃÎÒ²Ã»Ïëµ½×Ô¼º»áÊä¸øÒ»¸öÈËÀà¡£", "ËäÈ»Äã»ñµÃÁËÔİÊ±µÄÊ¤Àû£¬µ«¶ÔÓÚ´ó·¨Ê¦À´ËµÄã»¹ÊÇÌ«ÈõÁË¡£" }, () =>
+            // è¯´è¯
+            GameManager.Instance.UIManager.ShowDialog(GetComponent<ResourceController>().Name, new List<string> { "å™¢ï¼Œä¸Šå¸ï¼æˆ‘åšæ¢¦ä¹Ÿæ²¡æƒ³åˆ°è‡ªå·±ä¼šè¾“ç»™ä¸€ä¸ªäººç±»ã€‚", "è™½ç„¶ä½ è·å¾—äº†æš‚æ—¶çš„èƒœåˆ©ï¼Œä½†å¯¹äºå¤§æ³•å¸ˆæ¥è¯´ä½ è¿˜æ˜¯å¤ªå¼±äº†ã€‚" }, () =>
             {
-                // ËÀÍöÊ±´´½¨ÎïÆ·
+                // æ­»äº¡æ—¶åˆ›å»ºç‰©å“
                 Vector2 point = new Vector2();
-                // Éú³É´óÑªÆ¿
+                // ç”Ÿæˆå¤§è¡€ç“¶
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(-1 + i, -2);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 6).transform.position = point;
                 }
-                // Éú³Éºì±¦Ê¯
+                // ç”Ÿæˆçº¢å®çŸ³
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(-2, 1 - i);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 7).transform.position = point;
                 }
-                // Éú³ÉÀ¶±¦Ê¯
+                // ç”Ÿæˆè“å®çŸ³
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(2, 1 - i);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 8).transform.position = point;
                 }
-                // Éú³É»ÆÔ¿³×
+                // ç”Ÿæˆé»„é’¥åŒ™
                 for (int i = 0; i < 3; i++)
                 {
                     point.Set(-1 + i, 2);
                     GameManager.Instance.PoolManager.GetResourceInFreePool(EResourceType.Item, 1).transform.position = point;
                 }
-                // ¸Ä±ä¾çÇé×´Ì¬
+                // æ”¹å˜å‰§æƒ…çŠ¶æ€
                 GameManager.Instance.PlotManager.PlotDictionary[15] = 2;
-                // ´ò¿ªÈËÎï¿ØÖÆÆ÷
+                // æ‰“å¼€äººç‰©æ§åˆ¶å™¨
                 GameManager.Instance.PlayerManager.Enable = true;
-                // ½âËøÒôÆµ²¥·Å
+                // è§£é”éŸ³é¢‘æ’­æ”¾
                 GameManager.Instance.SoundManager.LockEnable = false;
-                // ÒôÆµ²¥·Å
+                // éŸ³é¢‘æ’­æ”¾
                 GameManager.Instance.SoundManager.PlaySound(ESoundType.Music, "LevelWin");
             });
         };

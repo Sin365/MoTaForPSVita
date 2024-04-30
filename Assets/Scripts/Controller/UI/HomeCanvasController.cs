@@ -22,27 +22,27 @@ public class HomeCanvasController : MonoBehaviour
     }
 
     /// <summary>
-    /// ĞÂÓÎÏ·
+    /// æ–°æ¸¸æˆ
     /// </summary>
     public void NewGameEvent()
     {
-        // ÉèÖÃ±êÊ¶·û
+        // è®¾ç½®æ ‡è¯†ç¬¦
         PlayerPrefs.SetInt("NewGame", 1);
-        // ¼ÓÔØ³¡¾°
+        // åŠ è½½åœºæ™¯
         SceneManager.LoadScene("Level");
     }
 
     /// <summary>
-    /// ¼ÓÔØÓÎÏ·
+    /// åŠ è½½æ¸¸æˆ
     /// </summary>
     public void LoadGameEvent()
     {
-        // ¼ÓÔØÓÎÏ·´æµµ
+        // åŠ è½½æ¸¸æˆå­˜æ¡£
         if (ResourceManager.Instance.GetGameArchiveStatus()) SceneManager.LoadScene("Level");
     }
 
     /// <summary>
-    /// ÍË³öÓÎÏ·
+    /// é€€å‡ºæ¸¸æˆ
     /// </summary>
     public void ExitGameEvent()
     {

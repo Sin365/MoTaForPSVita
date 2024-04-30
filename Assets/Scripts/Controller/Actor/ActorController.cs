@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class ActorController : ResourceController, IInteraction
 
     public void DisableSelf()
     {
-        // ÆôÓÃÈËÎï¿ØÖÆÆ÷
+        // å¯ç”¨äººç‰©æ§åˆ¶å™¨
         GameManager.Instance.PlayerManager.Enable = true;
         GameManager.Instance.PoolManager.RecycleResource(gameObject);
     }

@@ -25,17 +25,17 @@ public class MagicDoorOctopusController : MonoBehaviour
 
     public void RecycleSelf()
     {
-        // 回收资源
+        // 鍥炴敹璧勬簮
         GameManager.Instance.PoolManager.RecycleResource(gameObject);
     }
 
     /// <summary>
-    /// 获取守卫事件
+    /// 鑾峰彇瀹堝崼浜嬩欢
     /// </summary>
     private void GetGuardEvent()
     {
         _octupus = null;
-        // 从已使用物体列表中按位置获取物体
+        // 浠庡凡浣跨敤鐗╀綋鍒楄〃涓寜浣嶇疆鑾峰彇鐗╀綋
         GameManager.Instance.PoolManager.UseList.ForEach(obj =>
         {
             if ((Vector2)obj.transform.position == new Vector2(0, 1))

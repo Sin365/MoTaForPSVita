@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Íæ¼ÒÓëÆäËüÎïÌå½»»¥½Ó¿Ú
+/// ç©å®¶ä¸å…¶å®ƒç‰©ä½“äº¤äº’æ¥å£
 /// </summary>
 public interface IInteraction
 {
     /// <summary>
-    /// ½»»¥·½·¨
+    /// äº¤äº’æ–¹æ³•
     /// </summary>
-    /// <returns>½»»¥·µ»ØÖµ Ò»°ãÓÃÓÚÊÇ·ñ¿ÉÒÔ¼ÌĞøÒÆ¶¯</returns>
+    /// <returns>äº¤äº’è¿”å›å€¼ ä¸€èˆ¬ç”¨äºæ˜¯å¦å¯ä»¥ç»§ç»­ç§»åŠ¨</returns>
     bool Interaction();
 }

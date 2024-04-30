@@ -1,9 +1,9 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ·À±¬½Ó¿Ú
+/// é˜²çˆ†æ¥å£
 /// </summary>
 public interface IExplosionproof
 {

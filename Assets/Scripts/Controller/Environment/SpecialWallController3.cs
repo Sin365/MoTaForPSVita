@@ -17,12 +17,12 @@ public class SpecialWallController3 : MonoBehaviour
 
     private void OnLoaded()
     {
-        // ÈËÎïµ½´ï 35 ²ã ¾çÇé×´Ì¬ 1
+        // äººç‰©åˆ°è¾¾ 35 å±‚ å‰§æƒ…çŠ¶æ€ 1
         if (GameManager.Instance.PlotManager.PlotDictionary[9] == 1)
         {
-            // Éú³É 2 Â¥Ğ¡Íµ
+            // ç”Ÿæˆ 2 æ¥¼å°å·
             GameManager.Instance.ResourceManager.MakeResourceForLevel(2, EResourceType.Actor, 30, new Vector2(4, -5));
-            // ¸Ä±ä¾çÇé×´Ì¬
+            // æ”¹å˜å‰§æƒ…çŠ¶æ€
             GameManager.Instance.PlotManager.PlotDictionary[9] = 2;
         }
         else if (GameManager.Instance.PlotManager.PlotDictionary[9] == 2)
@@ -31,7 +31,7 @@ public class SpecialWallController3 : MonoBehaviour
         }
         else
         {
-            // »ØÊÕ×ÊÔ´
+            // å›æ”¶èµ„æº
             GameManager.Instance.PoolManager.RecycleResource(gameObject);
         }
     }

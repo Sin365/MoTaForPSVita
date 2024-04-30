@@ -18,9 +18,9 @@ V1.1
 返回主菜单：Select
 作弊：(已屏蔽）
 
-### 备注
+## History
 
-####日本魔塔原作者（PC98平台）： 渡部直(N.W)
+### **日本魔塔原作者（PC98平台）： 渡部直(N.W)**
 
 50层魔塔（日文：魔法の塔）是世界上第一部魔塔，于1996年12月23日由キャラバンソフトウェア设计师渡部直(N.W)发行。
 
@@ -33,7 +33,7 @@ http://wwajp.com/mtower/
 
 大概也是很大方的，说版权问题无所谓，欢迎二创。他自己也很高兴。
 
-#### Unity复刻开坑：SuYiHanr 
+### **Unity复刻开坑：SuYiHanr **
 
 在Unity上复刻魔塔50层的基本玩法和内容
 
@@ -43,7 +43,7 @@ http://wwajp.com/mtower/
 
 https://gitee.com/SuYiHanr/mo-ta.git
 
-#### PSVita 移植 ：皓月狩魂
+### **PSVita 移植 ：皓月狩魂**
 
 基于Unity复刻版，移植索尼PSVita游戏机
 

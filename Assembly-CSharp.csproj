@@ -169,6 +169,7 @@
      <Compile Include="Assets\Scripts\Event\Level\EventLevel6Actor1.cs" />
      <Compile Include="Assets\Scripts\Event\Level\EventLevel6Actor2.cs" />
      <Compile Include="Assets\Scripts\Event\Level\EventLevel7Actor1.cs" />
+     <Compile Include="Assets\Scripts\Event\Level\ShopComm.cs" />
      <Compile Include="Assets\Scripts\Framework\MonoSingleton.cs" />
      <Compile Include="Assets\Scripts\Framework\Singleton.cs" />
      <Compile Include="Assets\Scripts\Framework\Tools.cs" />

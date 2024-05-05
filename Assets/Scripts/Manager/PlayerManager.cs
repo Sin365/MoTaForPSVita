@@ -35,7 +35,16 @@ public class PlayerInfo
     [SerializeField]
     private string _notepadInfo;
 
-    public int Health
+	[SerializeField]
+	public int StoreBuyNum_F4 = 1;
+	[SerializeField]
+	public int StoreBuyNum_F12 = 1;
+	[SerializeField]
+	public int StoreBuyNum_F32 = 1;
+	[SerializeField]
+	public int StoreBuyNum_F46 = 1;
+
+	public int Health
     {
         get => _health;
         set

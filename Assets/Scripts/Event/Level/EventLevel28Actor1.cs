@@ -6,6 +6,31 @@ public class EventLevel28Actor1 : ActorController
 {
     public override bool Interaction()
     {
+
+		GameManager.Instance.UIManager.ShowInteractionDialog(GetComponent<ResourceController>().Name, "我按100个金币一把的价格回收黄钥匙，你出售吗？", "成交！", "算了吧", () =>
+		{
+            if (GameManager.Instance.BackpackManager.ConsumeItem(1))
+            {
+                GameManager.Instance.PlayerManager.PlayerInfo.Gold += 100;
+
+                GameManager.Instance.UIManager.ShowInfo("失去黄色钥匙x1");
+				GameManager.Instance.UIManager.ShowInfo("获得100金币");
+				// 打开人物控制器
+				GameManager.Instance.PlayerManager.Enable = true;
+                // 音频播放
+                GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "Yes");
+            }
+            else
+			{
+				GameManager.Instance.UIManager.ShowInfo("你没有黄钥匙");
+				// 打开人物控制器
+				GameManager.Instance.PlayerManager.Enable = true;
+			}
+
+		});
+		return false;
+
+		/*
         GameManager.Instance.UIManager.ShowInteractionDialog(GetComponent<ResourceController>().Name, "我会随机赋予你属性，但同样我也会收取你一部分属性，你确定要试试吗？", "谁怕谁", "我走了", () =>
         {
             // 随机两个属性
@@ -63,5 +88,6 @@ public class EventLevel28Actor1 : ActorController
             GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "Yes");
         });
         return false;
-    }
+        */
+	}
 }

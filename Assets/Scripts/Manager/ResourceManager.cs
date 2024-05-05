@@ -51,6 +51,11 @@ public class GameInfo
     public int MaxLevelInfo;
     public string BackpackInfo;
     public string PlotInfo;
+	//每个层商店购买次数
+	public int StoreBuyNum_F4 = 0;
+	public int StoreBuyNum_F12 = 0;
+	public int StoreBuyNum_F32 = 0;
+	public int StoreBuyNum_F46 = 0;
 }
 
 public class ResourceManager : Singleton<ResourceManager>
@@ -357,7 +362,8 @@ public class ResourceManager : Singleton<ResourceManager>
             MaxLevelInfo = GameManager.Instance.LevelManager.MaxLevel,
             BackpackInfo = JsonUtility.ToJson(new Serialization<int, ItemInfo>(GameManager.Instance.BackpackManager.BackpackDictionary)),
             PlotInfo = JsonUtility.ToJson(new Serialization<int, int>(GameManager.Instance.PlotManager.PlotDictionary)),
-        };
+
+		};
         // 保存资源信息
         PlayerPrefs.SetString("GameInfo", JsonUtility.ToJson(gameInfo));
         // UI 提示

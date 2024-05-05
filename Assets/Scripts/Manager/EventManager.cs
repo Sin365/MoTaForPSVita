@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ShopComm;
 
 public class EventManager : Singleton<EventManager>
 {
@@ -74,15 +75,16 @@ public class EventManager : Singleton<EventManager>
     /// </summary>
     public Action OnResourceLoaded;
 
-    /// <summary>
-    /// 打开商店事件
-    /// </summary>
-    public Action<string, int, Action> OnShopShow;
+	/// <summary>
+	/// 打开商店事件
+	/// </summary>
+	public Action<string, E_ShopFloor, ActorController,Action, Action,Action> OnShopShow;
+	//public Action<string, int, Action> OnShopShow;
 
-    /// <summary>
-    /// 法老权杖上楼事件
-    /// </summary>
-    public Action OnArtifactUp;
+	/// <summary>
+	/// 法老权杖上楼事件
+	/// </summary>
+	public Action OnArtifactUp;
     /// <summary>
     /// 法老权杖下楼事件
     /// </summary>

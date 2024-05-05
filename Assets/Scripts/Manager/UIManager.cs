@@ -44,8 +44,14 @@ public class UIManager : MonoSingleton<UIManager>
 	private GameObject _shopPanel;
     private Text _shopNameValueText;
     private Text _shopInfoValueText;
-    private Button _shopYesButton;
-    private Button _shopNoButton;
+    private Button _shopAddHPButton;
+    private Text _shopAddHPButtonText;
+	private Button _shopAddAtkButton;
+    private Text _shopAddAtkButtonText;
+	private Button _shopAddDefButton;
+    private Text _shopAddDefButtonText;
+
+	private Button _shopNoButton;
 
     private GameObject _infoPanel;
 
@@ -117,8 +123,13 @@ public class UIManager : MonoSingleton<UIManager>
         _shopPanel = MainCanvas.transform.Find("ShopPanel").gameObject;
         _shopNameValueText = _shopPanel.transform.Find("ShopNameValueText").GetComponent<Text>();
         _shopInfoValueText = _shopPanel.transform.Find("ShopValueText").GetComponent<Text>();
-        _shopYesButton = _shopPanel.transform.Find("YesButton").GetComponent<Button>();
-        _shopNoButton = _shopPanel.transform.Find("NoButton").GetComponent<Button>();
+		_shopAddHPButton = _shopPanel.transform.Find("shopAddHPButton").GetComponent<Button>();
+		_shopAddHPButtonText = _shopPanel.transform.Find("shopAddHPButton/shopAddHPButtonText").GetComponent<Text>();
+		_shopAddAtkButton = _shopPanel.transform.Find("shopAddAtkButton").GetComponent<Button>();
+		_shopAddAtkButtonText = _shopPanel.transform.Find("shopAddAtkButton/shopAddAtkButtonText").GetComponent<Text>();
+		_shopAddDefButton = _shopPanel.transform.Find("shopAddDefButton").GetComponent<Button>();
+		_shopAddDefButtonText = _shopPanel.transform.Find("shopAddDefButton/shopAddDefButtonText").GetComponent<Text>();
+		_shopNoButton = _shopPanel.transform.Find("NoButton").GetComponent<Button>();
         _shopPanel.SetActive(false);
 
         _infoPanel = MainCanvas.transform.Find("InfoPanel").gameObject;
@@ -225,43 +236,79 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
 
-    /// <summary>
-    /// 商店打开事件
-    /// </summary>
-    /// <param name="name">商店名称</param>
-    /// <param name="gold">每次所花金币</param>
-    private void ShopShowEvent(string name, int gold, Action callback)
-    {
-        // 音频播放
-        GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "Shop");
-        // 禁用人物控制器
-        GameManager.Instance.PlayerManager.Enable = false;
-        _shopPanel.SetActive(true);
-        _shopNameValueText.text = name;
-        _shopInfoValueText.text = gold.ToString();
-        _shopYesButton.onClick.RemoveAllListeners();
-        _shopYesButton.onClick.AddListener(() =>
-        {
-            callback?.Invoke();
-            // 启用人物控制器
-            GameManager.Instance.PlayerManager.Enable = true;
-        });
-        _shopNoButton.onClick.RemoveAllListeners();
-        _shopNoButton.onClick.AddListener(() =>
-        {
-            // 启用人物控制器
-            GameManager.Instance.PlayerManager.Enable = true;
-            // 音频播放
-            GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "No");
-            //关闭
+
+	/// <summary>
+	/// 商店打开事件
+	/// </summary>
+	/// <param name="name">商店名称</param>
+	/// <param name="gold">每次所花金币</param>
+	private void ShopShowEvent(string name,  ShopComm.E_ShopFloor floor, ActorController refreshActor, Action BuyHPcallback, Action BuyAtkcallback, Action BuyDefcallback)
+	{
+		// 音频播放
+		GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "Shop");
+		// 禁用人物控制器
+		GameManager.Instance.PlayerManager.Enable = false;
+		_shopPanel.SetActive(true);
+		_shopNameValueText.text = name;
+        //_shopInfoValueText.text = gold.ToString();
+        _shopInfoValueText.text = $"给我<color=yellow>{ShopComm.GetShopNeedMoney(floor)}</color>金币就可以提升以下，一种能力"; ;
+		ShopComm.FloorShopInfo shopinfo = ShopComm.GetFloorShopInfo(floor);
+
+		_shopAddHPButtonText.text = $"生命+{shopinfo.AddHP}";
+		_shopAddAtkButtonText.text = $"攻击+{shopinfo.AddAtk}";
+		_shopAddDefButtonText.text = $"防御+{shopinfo.AddDef}";
+
+		_shopAddHPButton.onClick.RemoveAllListeners();
+		_shopAddHPButton.onClick.AddListener(() =>
+		{
+			BuyHPcallback?.Invoke();
+
+			//关闭
+			_shopPanel.SetActive(false);
+            //刷新页面
+            refreshActor.Interaction();
+
+			//// 启用人物控制器
+			//GameManager.Instance.PlayerManager.Enable = true;
+		});
+
+		_shopAddAtkButton.onClick.RemoveAllListeners();
+		_shopAddAtkButton.onClick.AddListener(() =>
+		{
+			BuyAtkcallback?.Invoke();
+			//关闭
+			_shopPanel.SetActive(false);
+			//刷新页面
+			refreshActor.Interaction();
+		});
+
+		_shopAddDefButton.onClick.RemoveAllListeners();
+		_shopAddDefButton.onClick.AddListener(() =>
+		{
+			BuyDefcallback?.Invoke();
+			//关闭
+			_shopPanel.SetActive(false);
+			//刷新页面
+			refreshActor.Interaction();
+		});
+
+
+		_shopNoButton.onClick.RemoveAllListeners();
+		_shopNoButton.onClick.AddListener(() =>
+		{
+			// 启用人物控制器
+			GameManager.Instance.PlayerManager.Enable = true;
+			// 音频播放
+			GameManager.Instance.SoundManager.PlaySound(ESoundType.Effect, "No");
+			//关闭
 			_shopPanel.SetActive(false);
 		});
-    }
+	}
 
-    /// <summary>
-    /// 初始化背包 UI
-    /// </summary>
-    public void InitBackpackUI()
+	/// <summary>
+	/// 初始化背包 UI
+	/// </summary>
+	public void InitBackpackUI()
     {
         // 清空背包 UI
         LayoutElement[] layoutElements = _backpackInfoPanel.GetComponentsInChildren<LayoutElement>();

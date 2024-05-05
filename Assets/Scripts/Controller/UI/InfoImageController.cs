@@ -15,8 +15,10 @@ public class InfoImageController : MonoBehaviour
     }
 
     public void SetText(string text)
-    {
-        _infoText.text = text;
+	{
+		_animator = GetComponent<Animator>();
+		_infoText = GetComponentInChildren<Text>();
+		_infoText.text = text;
     }
 
     public void DestroySelf()

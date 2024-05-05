@@ -8,6 +8,14 @@ public class EventItemOther3 : MonoBehaviour, IInteraction
     // 对称飞行
     public bool Interaction()
     {
+        //暂时禁用
+        switch (GameManager.Instance.LevelManager.Level)
+        {
+            case 40:
+				GameManager.Instance.UIManager.ShowInfo("BOSS层无法使用");
+				break;
+		}
+
         // 获取对称坐标
         Vector2 point = GameManager.Instance.PlayerManager.PlayerController.transform.position * -1;
         // 判断坐标是否可以传送

@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -214,18 +212,6 @@ public class PlayerManager : Singleton<PlayerManager>
 
             if (Input.GetKeyDown(KeyCode.JoystickButton3)) GameManager.Instance.EventManager.OnArtifactUp?.Invoke();
             if (Input.GetKeyDown(KeyCode.JoystickButton0)) GameManager.Instance.EventManager.OnArtifactDown?.Invoke();
-
-            ////循环遍历输出
-            //if (Input.anyKeyDown)
-            //{
-            //	foreach (KeyCode keyCode in Enum.GetValues(typeof(KeyCode)))
-            //	{
-            //		if (Input.GetKeyDown(keyCode))
-            //		{
-            //			Debug.LogError("Current Key is : " + keyCode.ToString());
-            //		}
-            //	}
-            //}
 
             #region 长按
 

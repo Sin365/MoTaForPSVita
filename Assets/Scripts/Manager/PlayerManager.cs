@@ -177,7 +177,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
 	    KeyCode.JoystickButton8,
 	    KeyCode.JoystickButton10,
-	    KeyCode.JoystickButton1,
+	    KeyCode.JoystickButton11,
 	    KeyCode.JoystickButton9,
 	}; 
 
@@ -234,14 +234,10 @@ public class PlayerManager : Singleton<PlayerManager>
 							case KeyCode.JoystickButton8:
 								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.UP);
 								break;
-
-
 							case KeyCode.DownArrow:
 							case KeyCode.JoystickButton10:
 								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.DOWN);
 								break;
-
-
 							case KeyCode.LeftArrow:
 							case KeyCode.JoystickButton11:
 								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.LEFT);

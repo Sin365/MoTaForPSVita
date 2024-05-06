@@ -88,7 +88,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     /// <param name="clipName">音频名称</param>
     public void PlaySound(ESoundType type, string clipName)
 	{
-		Debug.Log($"PlaySound {type}:{clipName} |_musicName {_musicName} |  LockEnable {LockEnable} ");
+		//Debug.Log($"PlaySound {type}:{clipName} |_musicName {_musicName} |  LockEnable {LockEnable} ");
         try
 		{
 			switch (type)

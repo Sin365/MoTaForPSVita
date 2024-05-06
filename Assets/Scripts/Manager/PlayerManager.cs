@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -156,6 +157,32 @@ public class PlayerManager : Singleton<PlayerManager>
         this._playerController = null;
     }
 
+    const float KeepKeyTime = 0.2f;
+    Dictionary<KeyCode, float> DictKeyKeep = new Dictionary<KeyCode, float>()
+	{
+		{KeyCode.UpArrow,-1 },
+		{KeyCode.DownArrow,-1 },
+		{KeyCode.LeftArrow,-1 },
+		{KeyCode.RightArrow,-1 },
+
+		{KeyCode.JoystickButton8,-1 },
+		{KeyCode.JoystickButton10,-1 },
+		{KeyCode.JoystickButton11,-1},
+		{KeyCode.JoystickButton9,-1},
+	};
+
+    KeyCode[] KeepKeys = {
+	    KeyCode.UpArrow,
+	    KeyCode.DownArrow,
+	    KeyCode.LeftArrow,
+	    KeyCode.RightArrow,
+
+	    KeyCode.JoystickButton8,
+	    KeyCode.JoystickButton10,
+	    KeyCode.JoystickButton1,
+	    KeyCode.JoystickButton9,
+	}; 
+
     /// <summary>
     /// 检查输入
     /// </summary>
@@ -188,19 +215,64 @@ public class PlayerManager : Singleton<PlayerManager>
             if (Input.GetKeyDown(KeyCode.JoystickButton3)) GameManager.Instance.EventManager.OnArtifactUp?.Invoke();
             if (Input.GetKeyDown(KeyCode.JoystickButton0)) GameManager.Instance.EventManager.OnArtifactDown?.Invoke();
 
-			////循环遍历输出
-			//if (Input.anyKeyDown)
-			//{
-			//	foreach (KeyCode keyCode in Enum.GetValues(typeof(KeyCode)))
-			//	{
-			//		if (Input.GetKeyDown(keyCode))
-			//		{
-			//			Debug.LogError("Current Key is : " + keyCode.ToString());
-			//		}
-			//	}
-			//}
+            ////循环遍历输出
+            //if (Input.anyKeyDown)
+            //{
+            //	foreach (KeyCode keyCode in Enum.GetValues(typeof(KeyCode)))
+            //	{
+            //		if (Input.GetKeyDown(keyCode))
+            //		{
+            //			Debug.LogError("Current Key is : " + keyCode.ToString());
+            //		}
+            //	}
+            //}
+
+            #region 长按
+
+			for(int i=0; i< KeepKeys.Length; i++)
+            {
+                KeyCode key = KeepKeys[i];
+
+				if (!Input.GetKey(key))
+                    DictKeyKeep[key] = -1;
+                else
+                {
+                    if (DictKeyKeep[key] == -1)
+                        DictKeyKeep[key] = Time.time;
+                    else if(Time.time - DictKeyKeep[key] >= KeepKeyTime)
+					{
+						DictKeyKeep[key] = -1;
+						switch (key)
+                        {
+                            case KeyCode.UpArrow:
+							case KeyCode.JoystickButton8:
+								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.UP);
+								break;
+
+
+							case KeyCode.DownArrow:
+							case KeyCode.JoystickButton10:
+								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.DOWN);
+								break;
+
+
+							case KeyCode.LeftArrow:
+							case KeyCode.JoystickButton11:
+								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.LEFT);
+								break;
+							case KeyCode.RightArrow:
+							case KeyCode.JoystickButton9:
+								GameManager.Instance.EventManager.OnMoveInput?.Invoke(EDirectionType.RIGHT);
+								break;
+						}
+					}
+                }
+			}
+
+			#endregion
+
 		}
-    }
+	}
 
     /// <summary>
     /// 添加信息到记事本

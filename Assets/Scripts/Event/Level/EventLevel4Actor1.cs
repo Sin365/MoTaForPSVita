@@ -1,11 +1,3 @@
-public enum ERandomShopType
-{
-    Health,
-    Attack,
-    Defence,
-    Gold,
-}
-
 public class EventLevel4Actor1 : ActorController
 {
     ShopComm.E_ShopFloor floor = ShopComm.E_ShopFloor.F4;

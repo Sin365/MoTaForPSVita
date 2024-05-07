@@ -13,6 +13,7 @@ public class EventItemOther3 : MonoBehaviour, IInteraction
         {
             case 40:
 				GameManager.Instance.UIManager.ShowInfo("BOSS层无法使用");
+                return false;
 				break;
 		}
 

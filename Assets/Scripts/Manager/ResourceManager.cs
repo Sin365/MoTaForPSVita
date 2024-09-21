@@ -181,6 +181,21 @@ public class ResourceManager : Singleton<ResourceManager>
 	}
 
 	/// <summary>
+	/// 存档时间
+	/// </summary>
+	/// <returns></returns>
+	public string GetSaveDateTime()
+	{
+#if UNITY_EDITOR_WIN
+		return $"PC:{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+#else
+		FileInfo fileinfo = new FileInfo(SaveDataFilePath);
+		return $"存档时间:{fileinfo.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss")}";
+#endif
+
+	}
+
+	/// <summary>
 	/// 加载游戏存档
 	/// </summary>
 	/// <returns>是否能够加载</returns>
